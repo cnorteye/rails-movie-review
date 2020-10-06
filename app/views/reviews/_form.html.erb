@@ -1,0 +1,48 @@
+<%= form_with(model: @review, local: true) do |form| %>
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+        <% @review.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <div id="star-rating"></div>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_area :comment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :movie_id %>
+    <%# <%= form.number_field :movie_id %>
+  </div>
+
+  <!-- <div class="field">
+   <%= form.label :user_id %>
+   <%= form.number_field :user_id %>
+ </div> -->
+
+  <%# <%= hidden_field_tag 'review[movie_id]', @movie.id %>
+
+  <%= hidden_field_tag 'review[user_id]', current_user.id %>
+
+
+   <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<script>
+	  $('#star-rating').raty({
+	    path: '/assets/',
+	    scoreName: 'review[rating]'
+	  });
+	</script>
