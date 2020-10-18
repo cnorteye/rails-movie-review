@@ -7,4 +7,7 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :movies
 
+  include Gravtastic
+  gravtastic 
+
 end

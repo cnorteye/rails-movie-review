@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
- before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!, except: [:show, :index]
 
 
  # GET /movies
@@ -31,24 +31,9 @@ class MoviesController < ApplicationController
  def edit
  end
 
- # POST /movies
- # POST /movies.json
-#  def create
-#   @movie = Movie.new(movie_params)
-#
-# respond_to do |format|
-#  if @movie.save
-#       format.html { redirect_to @movie, notice: 'Movie was successfully created.' }
-#       format.json { render :show, status: :created, location: @movie }
-#   else
-#       format.html { render :new }
-#       format.json { render json: @movie.errors, status: :unprocessable_entity }
-#       end
-#     end
-#  end
 
  def create
-   @review = Movie.new(movie_params)
+   @movie = Movie.new(movie_params)
 
 
    respond_to do |format|
