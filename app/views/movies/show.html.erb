@@ -50,8 +50,9 @@
 	            </div>
 	          <% end %>
 	        <% end %>
-
-          <%= render 'reviews/form' %>
+          <% if user_signed_in? %>
+            <%= render 'reviews/form' %>
+          <% end %>
 	      </div>
 	    </div>
 	  </div>
